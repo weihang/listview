@@ -2,7 +2,11 @@ package com.example.listview;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -18,6 +22,17 @@ public class MainActivity extends Activity {
 	
 		listView = (ListView) findViewById(R.id.listView1);
 		listView.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,data));
+
+		listView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+				// TODO Auto-generated method stub
+				Log.e("Tag",""+arg2);
+			}
+			
+		});
+		
 	}
 
 	@Override
